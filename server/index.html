@@ -1,0 +1,29 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Client-Server Example</title>
+</head>
+<body>
+<h1>Client-Server Example</h1>
+<button onclick="sendMessage()">Send 23 Message to Server</button>
+
+<script>
+    function sendMessage() {
+        // Simple XMLHttpRequest to communicate with the server
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/message', true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log('Server Response:', xhr.responseText);
+            }
+        };
+
+        xhr.send();
+    }
+</script>
+</body>
+</html>
